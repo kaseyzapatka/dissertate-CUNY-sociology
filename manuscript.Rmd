@@ -87,7 +87,7 @@ Acknowledge them.
 
  
  
- <!-- Dedication -->
+<!-- Dedication -->
 \newpage
 \fancyhead[L]{Dedication}
 \fancyhead[R]{\thepage}
