@@ -1,76 +1,41 @@
-\documentclass[]{DissertateCUNY}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{DissertateCUNY}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-    \setmainfont[]{Times New Roman}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Georgia}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[top=1in,bottom=1in,right=1in,left=1in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Memory-guided selective attention},
-            pdfauthor={Nicholaus P. Brosowsky},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -79,75 +44,90 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Memory-guided selective attention}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Nicholaus P. Brosowsky}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-    \date{}
-    \predate{}\postdate{}
-  
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \usepackage{xspace}
-\newcommand{\yeardegree}{2019\xspace}\newcommand{\degree}{Doctor of Philosophy\xspace}
-\newcommand{\field}{Psychology\xspace}
-\newcommand{\chairperson}{Matthew J.C. Crump, Ph.D.\xspace}
-\newcommand{\committeeone}{Jamison Fargo, Ph.D.\xspace}
-\newcommand{\committeetwo}{Rick Cruz, Ph.D.\xspace}
-\newcommand{\committeethree}{Michael Levin, Ph.D.\xspace}
-\newcommand{\committeefour}{Adele Cutler, Ph.D.\xspace}
+\newcommand{\yeardegree}{2022\xspace}\newcommand{\degree}{Doctor of Philosophy\xspace}
+\newcommand{\field}{Sociology\xspace}
+\newcommand{\chairperson}{Chair Name\xspace}
+\newcommand{\committeeone}{Prof 1\xspace}
+\newcommand{\committeetwo}{Prof 2\xspace}
+\newcommand{\committeethree}{Prof 3\xspace}
+\newcommand{\committeefour}{\xspace}
 \newcommand{\gradschoolguy}{\xspace}
-\newcommand{\EO}{Richard Bodnar, Ph.D.\xspace}
-\newcommand{\advisor}{Matthew J.C. Crump, Ph.D\xspace}
-\newcommand{\abstract}{Evidence across a wide variety of attention paradigms shows that environmental cues can trigger adjustments to ongoing priorities for attending to relevant and irrelevant information. This context-specific control over attention suggests that cognitive control can be both automatic and flexible. For instance, in selective attention tasks, congruency effects are larger for items that appear in a context associated with infrequent conflict than in a context associated with frequent conflict. Since the to-be-presented context cannot be predicted or prepared for in advance, attention is assumed to be rapidly updated on-the-fly, triggered by the currently presented context. Context-specific control exemplifies how learning and memory processes can influence attention to enable cognitive flexibility. However, what determines the use of previously learned associations still remains unclear. In the current study, we examined whether task-relevance would influence the learning and use of context cues in a flanker task. Using a secondary counting task, context dimensions associated with differing levels of conflict were made task-relevant or -irrelevant across the experiment. In short, we found that making new contextual information task-relevant caused participants to ignore a previously learned context-attention association and adopt a new context-specific control strategy; all without changing the experimental stimuli. This result suggests that task-relevance is a key determinant of context-specific control.\xspace}
+\newcommand{\EO}{Executive Officer\xspace}
+\newcommand{\advisor}{Advisor Name\xspace}
+\newcommand{\abstract}{Write your abstract here but keep in between quotes. \xspace}
 % Tables
-      \usepackage{booktabs}
-      \usepackage{threeparttable}
-      \usepackage{array}
-      \newcolumntype{x}[1]{%
-      >{\centering\arraybackslash}m{#1}}%
-      \usepackage{placeins}
-      \usepackage{chngcntr}
-      \counterwithin{figure}{chapter}
-      \counterwithin{table}{chapter}
-      \usepackage{lipsum}
-      \usepackage[makeroom]{cancel}
+           \usepackage{booktabs}
+           \usepackage{threeparttable}
+           \usepackage{array}
+           \newcolumntype{x}[1]{%
+           >{\centering\arraybackslash}m{#1}}%
+           \usepackage{placeins}
+           \usepackage{chngcntr}
+           \counterwithin{figure}{chapter}
+           \counterwithin{table}{chapter}
+           \usepackage{lipsum}
+           \usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdfauthor={Your Name},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Centered:\\
+Title}
+\author{Your Name}
+\date{}
 
 \begin{document}
 \maketitle
@@ -157,15 +137,6 @@
 \abstractpage
 
 \newpage
-\fancyhead[L]{Dedication}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
-\chapter*{DEDICATION}
-\addcontentsline{toc}{section}{Dedication}
-
-Dedicate it.
-
-\newpage
 \fancyhead[L]{Acknowledgments}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
@@ -173,6 +144,14 @@ Dedicate it.
 \addcontentsline{toc}{section}{Acknowledgments}
 
 Acknowledge them.
+
+\newpage \fancyhead[L]{Dedication} \fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+
+\chapter*{DEDICATION}
+\addcontentsline{toc}{section}{Dedication}
+
+Dedicate it.
 
 \newpage
 \fancyhead[L]{Table of Contents}
@@ -196,325 +175,226 @@ Acknowledge them.
 \pagenumbering{arabic}
 
 \newpage
-\fancyhead[L]{Introduction}
+\fancyhead[L]{Chapter 1: Running head}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{INTRODUCTION}
+\chapter{Chapter 1: Introduction}
 
-\hypertarget{section-1}{%
-\section{Section 1}\label{section-1}}
+\doublespacing
 
-Selective attention is commonly investigated using interference
-paradigms such as the Stroop (1935) and flanker (Eriksen and Eriksen,
-1974) tasks, where participants identify a target while ignoring a
-response-congruent or -incongruent distractor. Performance is typically
-better on congruent versus incongruent trials and the difference---the
-congruency effect---taken as an index of attentional priorities. Large
-congruency effects are thought to reflect ineffective filtering of the
-distracting stimuli whereas small congruency effects are thought to
-reflect effective filtering. By probing factors that systematically
-alter congruency effects, we can then make inferences about processes
-that control attentional filtering. For example, manipulating the
-frequency of conflict via the proportion of congruent versus incongruent
-trials has shown to influence the size of the congruency effect.
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
 
+Write intro.
+
+\hypertarget{section}{%
+\section{Section}\label{section}}
+
+Section 1.
+
+\hypertarget{subsection}{%
+\subsection{Subsection}\label{subsection}}
+
+Write something interesting.
+
+\hypertarget{new-section}{%
+\section{New section}\label{new-section}}
+
+New section. See Figure \ref{fig:dumbbellrent} that reports the median
+share of \ldots{} The reference in the prior sentence cross-references
+and auto numbers your figures. This is prob one of the most useful
+things about writing your dissertation in R markdown. I add latex code
+to singlespace around the figure below. Be sure to add a \footnote{footnote.}
+
+\begin{singlespace}
 \begin{figure}
-  \centering
-  \includegraphics[width=5in]{figures/figure1.pdf}
-  \caption{Illustration of the trial sequence for all experiments.}
-  \caption*{Note that the target could appear above or below the fixation. The identity cue ("Color?" or "Letter?") always appeared in the center of the screen while the position cue ("- - ? -") always appeared in the same location as the target. Participants were instructed to report either the letter or color in the cued position.}
 
-  \label{figure1}
+{\centering \includegraphics[width=0.9\linewidth]{figures/dumbbell_rent} 
+
+}
+
+\caption{Median neighborhood rent burden rate for the highest 2019 rates, 2000 to 2019}\label{fig:dumbbellrent}
 \end{figure}
+\end{singlespace}
 
-\hypertarget{section-2}{%
-\section{Section 2}\label{section-2}}
+\hypertarget{discussion-and-conclusion}{%
+\section{Discussion and conclusion}\label{discussion-and-conclusion}}
 
-Typically, a high proportion congruent experiment produces large
-congruency effects, whereas a low proportion congruent experiment
-produces small congruency effects (Logan and Zbrodoff, 1979; Lowe and
-Mitterer, 1982; West and Baylis, 1998). This result is usually explained
-as strategic control, where participants increase attentional control
-under high-conflict demands and relax attentional control under
-low-conflict demands (Logan, 1980; Logan and Zbrodoff, 1979; Logan,
-Zbrodoff, and Williamson, 1984; Lowe and Mitterer, 1982).
+Write a good conclusion.
+
+\FloatBarrier
+
+\newpage
+\fancyhead[L]{Chapter 2: Running head}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+
+\chapter{Chapter 2: Full title}
+
+\doublespacing
+
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
+
+Write intro.
+
+\hypertarget{new-section-1}{%
+\section{New Section}\label{new-section-1}}
+
+Maybe write a literature review here?
 
 \hypertarget{sub-section}{%
-\subsection{Sub section}\label{sub-section}}
+\subsection{Sub-section}\label{sub-section}}
 
-Recent work however, has demonstrated that attentional control is not
-only adjusted by top-down regulation, but can also be triggered
-automatically by environmental cues (Brosowsky and Crump, 2018; Bugg and
-Crump, 2012; Egner, 2014; Fischer and Dreisbach, 2015; King, Korb, and
-Egner, 2012; Mayr and Bryck, 2007).
+Continue writing interesting things. Add an equation. The Latex label
+code allows you to cross reference the equation. I give two examples
+below.
 
-\lipsum[1-9]
+\begin{equation} \label{eq:gmi}
+I = \frac{N}{W} \frac{ \Sigma_{i}\Sigma_{j}w_{ij}(x_{i} - \bar{x})(x_{j} - \bar{x}) } { \Sigma_{i}(x_{i} - \bar{x})^2 } 
+\end{equation}
 
-\FloatBarrier
+where \(w_{ij}\) represents the spatial weights matrix, \(N\) is the
+number of spatial units denoted by \(i\) and \(j\), \(W\) is the sum of
+the spatial weights, and \(x\) is the given observation (Walker 2022, pg
+7.6). Essentially, this statistic summarizes the degree of spatial
+autocorrelation across the spatial scope, which for this project,
+represents the respective metropolitan area.
 
-\newpage
-\fancyhead[L]{Chapter 2: running header}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
+The second method combines statistical and visual evidence by
+calculating Local Indicators of Spatial Autocorrelation (LISA) and
+visualizing the distribution of these statistics across a metro area
+using maps (Anselin 1995; Walker 2022). This affords researchers the
+ability to not only visualize the spatial distribution of statistically
+significant spatial clusters, but also illustrate the degree each
+spatial unit contributes to overall spatial autocorrelation score
+(Walker 2022). The Local Moran's I statistic takes the following form:
+``a given local feature \(i\) with \(j\) neighbors:''
 
-\chapter{Chapter 2: This chapter includes a latex table}
+\begin{equation} \label{eq:lmi}
+I_{i} = z_{i} \sum_{j} {w_{ij} z_{j}} 
+\end{equation}
 
-\lipsum[1-4]
+where \(i\) is a given local feature, \(j\) represents its neighbors,
+and \(z_{i}\) and \(z_{j}\) denote deviations from the mean (Walker
+2022).
 
-\begin{table}[htbp]
-  \centering
-  \caption{Add caption}
-  \resizebox{\textwidth}{!}{
-    \begin{tabular}{rrcccccc}
-    \toprule &  
-    & \multicolumn{4}{c}{ Trial \textit{n}} 
-    & \multicolumn{1}{c}{ Congruency Effect } 
-    & \multicolumn{1}{c}{ $\textit{n}-1$ CSE} \\
-    \cmidrule{3-6} &       
-    & \multicolumn{2}{c}{ Con} 
-    & \multicolumn{2}{c}{ Inc} 
-    & \multicolumn{1}{c}{ $(I-C)$} 
-    & \multicolumn{1}{c}{ ($C_{(I-C)} - I_{(I-C)})$} \\
-    \cmidrule{3-8}
-    & \multicolumn{1}{c}{ Trial $\textit{n}-1$} 
-    & \multicolumn{1}{c}{ \textit{RT}} 
-    & \multicolumn{1}{c}{ \textit{ER}} 
-    & \multicolumn{1}{c}{ \textit{RT}} 
-    & \multicolumn{1}{c}{ \textit{ER}} 
-    & \multicolumn{1}{c}{ \textit{RT}} 
-    & \multicolumn{1}{c}{ \textit{RT}} \\
-    \midrule
-    \multicolumn{2}{c}{\textbf{Exp. 1A}}  &   &    &     &     &    &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{626 (22)} 
-    & \multicolumn{1}{c}{2.97 (.55)} 
-    & \multicolumn{1}{c}{658 (22)} 
-    & \multicolumn{1}{c}{3.48 (.48)}
-    & \multicolumn{1}{c}{32 (7)} 
-    & \multicolumn{1}{c}{-3 (13)} \\
-    & \multicolumn{1}{c}{Inc} 
-    & \multicolumn{1}{c}{635 (21)} 
-    & \multicolumn{1}{c}{3.55 (.46)} 
-    & \multicolumn{1}{c}{671 (25)} 
-    & \multicolumn{1}{c}{4.48 (.72)} 
-    & \multicolumn{1}{c}{36 (9)} &  \\
-    \multicolumn{2}{c}{\textbf{Exp. 1B}} &    &     &     &     &     &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{753 (21)} 
-    & \multicolumn{1}{c}{2.40 (.51)} 
-    & \multicolumn{1}{c}{832 (25)} 
-    & \multicolumn{1}{c}{3.48 (.53)} 
-    & \multicolumn{1}{c}{78 (10)} 
-    & \multicolumn{1}{c}{36 (12)} \\
-    & \multicolumn{1}{c}{Inc}
-    & \multicolumn{1}{c}{791 (24)} 
-    & \multicolumn{1}{c}{3.58 (.54)} 
-    & \multicolumn{1}{c}{671 (25)}
-    & \multicolumn{1}{c}{3.23 (.71)} 
-    & \multicolumn{1}{c}{42 (14)} &  \\
-    \multicolumn{2}{c}{\textbf{Exp. 1C}} &       &       &       &       &       &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{771 (27)} 
-    & \multicolumn{1}{c}{2.46 (.37)} 
-    & \multicolumn{1}{c}{834 (27)} 
-    & \multicolumn{1}{c}{2.66 (.39)} 
-    & \multicolumn{1}{c}{62 (6)} 
-    & \multicolumn{1}{c}{27 (7)} \\
-    & \multicolumn{1}{c}{Inc} 
-    & \multicolumn{1}{c}{794 (25)} 
-    & \multicolumn{1}{c}{2.91 (.40)} 
-    & \multicolumn{1}{c}{829 (26)} 
-    & \multicolumn{1}{c}{2.65 (.38)} 
-    & \multicolumn{1}{c}{35 (7)} &  \\
-    &       &       &       &       &       &       &  \\
-    \midrule
-    \multicolumn{2}{c}{\textbf{Exp. 2A}} &       &       &       &       &       &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{557 (17)} 
-    & \multicolumn{1}{c}{2.36 (.38)} 
-    & \multicolumn{1}{c}{593 (16)} 
-    & \multicolumn{1}{c}{4.36 (.57)} 
-    & \multicolumn{1}{c}{36 (6)} 
-    & \multicolumn{1}{c}{8 (8)} \\
-    & \multicolumn{1}{c}{Inc} 
-    & \multicolumn{1}{c}{576 (18)} 
-    & \multicolumn{1}{c}{3.59 (.47)} 
-    & \multicolumn{1}{c}{605 (19)} 
-    & \multicolumn{1}{c}{3.80 (.60)} 
-    & \multicolumn{1}{c}{28 (6)} &  \\
-    \multicolumn{2}{c}{\textbf{Exp. 2B}} &       &       &       &       &       &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{568 (20)} 
-    & \multicolumn{1}{c}{1.91 (.37)} 
-    & \multicolumn{1}{c}{638 (24)} 
-    & \multicolumn{1}{c}{4.67 (.61)} 
-    & \multicolumn{1}{c}{70 (5)} 
-    & \multicolumn{1}{c}{33 (6)} \\
-    & \multicolumn{1}{c}{Inc} 
-    & \multicolumn{1}{c}{606 (24)} 
-    & \multicolumn{1}{c}{2.83 (.41)} 
-    & \multicolumn{1}{c}{643 (23)} 
-    & \multicolumn{1}{c}{3.78 (.58)} 
-    & \multicolumn{1}{c}{37 (7)} &  \\
-    &       &       &       &       &       &       &  \\
-    \midrule
-    \multicolumn{2}{c}{\textbf{Exp. 3A}} &       &       &       &       &       &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{837 (24)} 
-    & \multicolumn{1}{c}{2.18 (.45)} 
-    & \multicolumn{1}{c}{880 (20)} 
-    & \multicolumn{1}{c}{2.65 (.41)} 
-    & \multicolumn{1}{c}{43 (8)}
-    & \multicolumn{1}{c}{22 (12)} \\
-    & \multicolumn{1}{c}{Inc} 
-    & \multicolumn{1}{c}{855 (21)} 
-    & \multicolumn{1}{c}{2.83 (.40)} 
-    & \multicolumn{1}{c}{876 (22)} 
-    & \multicolumn{1}{c}{2.85 (.56)} 
-    & \multicolumn{1}{c}{20 (8)} &  \\
-    \multicolumn{2}{c}{\textbf{Exp. 3B}} &       &       &       &       &       &  \\
-    & \multicolumn{1}{c}{Con} 
-    & \multicolumn{1}{c}{860 (23)} 
-    & \multicolumn{1}{c}{2.54 (.38)} 
-    & \multicolumn{1}{c}{889 (24)} 
-    & \multicolumn{1}{c}{2.38 (.42)} 
-    & \multicolumn{1}{c}{30 (7)} 
-    & \multicolumn{1}{c}{13 (10)} \\
-    & \multicolumn{1}{c}{Inc} 
-    & \multicolumn{1}{c}{873 (24)} 
-    & \multicolumn{1}{c}{2.28 (.36)} 
-    & \multicolumn{1}{c}{889 (23)} 
-    & \multicolumn{1}{c}{2.43 (.35)} 
-    & \multicolumn{1}{c}{16 (8)} &  \\
-    &       &       &       &       &       &       &  \\
-    \bottomrule
-    \multicolumn{8}{l}{\textit{Note}: This is the note info} \\
-    \end{tabular}}%
-  \label{tab:addlabel}%
+\hypertarget{sub-sub-section.}{%
+\subsubsection{Sub-sub section.}\label{sub-sub-section.}}
+
+You can even add a sub-sub section. I find adding a ``period'' at the
+end helps distinguish the section from the normal text.
+
+\hypertarget{result-secion}{%
+\section{Result secion}\label{result-secion}}
+
+Write up your results. Here's an example of how to make a table and
+cross-reference it. Table \ref{tab:descriptives} reports neighborhood
+medians for all covariates included in the following multivariate
+analyses by gentrification status. I include summary statistics on
+neighborhoods not eligible to gentrify since these neighborhoods are
+also included in the models; however, I will focus on comparing
+gentrifying neighborhoods to those eligible but did not gentrify since
+they are the appropriate reference group.
+
+\begin{singlespace}
+\begin{table}[H]
+
+\caption{\label{tab:descriptives}Descriptives statistics for all model variables by gentrification status}
+\centering
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{15em}llll}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{3}{c}{Neighborhood gentrification status} & \multicolumn{1}{c}{ } \\
+\cmidrule(l{3pt}r{3pt}){2-4}
+  & Non-gentrifying & Moderate & Intense & Not eligible\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Demographic controls}}\\
+\hspace{1em}\cellcolor{gray!6}{Population} & \cellcolor{gray!6}{3725.00} & \cellcolor{gray!6}{3537.00} & \cellcolor{gray!6}{3402.50} & \cellcolor{gray!6}{3552.00}\\
+\hspace{1em}Median age & 35.00 & 35.55 & 34.65 & 36.50\\
+\hspace{1em}\cellcolor{gray!6}{Std. concentrated immigration} & \cellcolor{gray!6}{0.56} & \cellcolor{gray!6}{0.49} & \cellcolor{gray!6}{0.23} & \cellcolor{gray!6}{0.28}\\
+\hspace{1em}Geographic mobility & 18.08 & 18.98 & 21.89 & 20.66\\
+\hspace{1em}\cellcolor{gray!6}{\% non-Hispanic Black} & \cellcolor{gray!6}{20.22} & \cellcolor{gray!6}{12.09} & \cellcolor{gray!6}{5.64} & \cellcolor{gray!6}{6.00}\\
+\hspace{1em}\% non-Hispanic Asian & 3.71 & 5.69 & 7.00 & 7.16\\
+\hspace{1em}\cellcolor{gray!6}{\% Hispanic} & \cellcolor{gray!6}{27.26} & \cellcolor{gray!6}{21.55} & \cellcolor{gray!6}{17.11} & \cellcolor{gray!6}{15.33}\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Housing market controls}}\\
+\hspace{1em}Household size & 2.90 & 2.84 & 2.46 & 2.85\\
+\hspace{1em}\cellcolor{gray!6}{Vacancy rate} & \cellcolor{gray!6}{7.58} & \cellcolor{gray!6}{7.68} & \cellcolor{gray!6}{8.95} & \cellcolor{gray!6}{7.79}\\
+\hspace{1em}Housing market tightness & 0.85 & 0.88 & 0.90 & 0.88\\
+\hspace{1em}\cellcolor{gray!6}{\% renters} & \cellcolor{gray!6}{73.06} & \cellcolor{gray!6}{67.30} & \cellcolor{gray!6}{76.60} & \cellcolor{gray!6}{63.63}\\
+\hspace{1em}\% owners & 26.94 & 32.70 & 23.40 & 36.37\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Inequality controls}}\\
+\hspace{1em}\cellcolor{gray!6}{Gini coefficient} & \cellcolor{gray!6}{0.44} & \cellcolor{gray!6}{0.43} & \cellcolor{gray!6}{0.46} & \cellcolor{gray!6}{0.44}\\
+\hspace{1em}Std. concentrated disadvantage & 0.59 & 0.13 & -0.08 & -0.08\\
+\cellcolor{gray!6}{} & \cellcolor{gray!6}{2,263} & \cellcolor{gray!6}{2,263} & \cellcolor{gray!6}{2,263} & \cellcolor{gray!6}{2,263}\\
+\bottomrule
+\end{tabular}
 \end{table}
 
+\end{singlespace}
+
+\hypertarget{discussion-and-conclusion-1}{%
+\section{Discussion and conclusion}\label{discussion-and-conclusion-1}}
+
+Conclude it.
+
 \FloatBarrier
 
 \newpage
-\fancyhead[L]{Chapter 3's Title}
+\fancyhead[L]{Chapter 3: Running head}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{Chapter 3's Title}
+\chapter{Chapter 3: Full title}
 
-Don't stop now.
+\doublespacing
+
+\hypertarget{introduction-2}{%
+\section{Introduction}\label{introduction-2}}
+
+This chapter
+
+\hypertarget{section-1}{%
+\section{Section}\label{section-1}}
+
+Here is some code to insert a figure while also centering and single
+spacing. Note this has a .pdf suffix instead of .png. I usually use the
+latter because the file size is usually smaller and easier to work with
+in R.
+
+\begin{center}
+\begin{singlespace}
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/flow-chart} 
+
+}
+
+\caption{Declining affordability mediates the effect of gentrification on displacement}\label{fig:flowchart}
+\end{figure}
+\end{singlespace}
+\end{center}
+
+\hypertarget{sub-section-1}{%
+\subsection{Sub-section}\label{sub-section-1}}
+
+Write some more thoughts here.
+
+\hypertarget{discussion-and-conclusion-2}{%
+\section{Discussion and conclusion}\label{discussion-and-conclusion-2}}
+
+Conclude it.
+
+You can add as many chapters as you want. My dissertation had 6
+chapters. Just copy and modify an .Rmd file.
 
 \FloatBarrier
+
 \newpage
-\fancyhead[L]{Chapter 4's Title}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
-
-\chapter{Chapter 4's Title}
-
-Keep it going.
-
-\FloatBarrier
-\newpage
-\fancyhead[L]{Chapter 5's Title}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
-
-\chapter{Chapter 5's Title}
-
-Well done.
-
-\FloatBarrier
-\newpage
-
-\fancyhead[L]{References}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
-
-\chapter*{REFERENCES}
-
-\setlength{\parindent}{-0.5in}
-\setlength{\leftskip}{0.5in}
-\setlength{\parskip}{6pt}
-
-\noindent
-
-\hypertarget{refs}{}
-\leavevmode\hypertarget{ref-brosowsky_memory-guided_2018}{}%
-Brosowsky, N. P., and Crump, M. J. C. (2018). Memory-guided selective
-attention: Single experiences with conflict have long-lasting effects on
-cognitive control. \emph{Journal of Experimental Psychology: General}.
-\url{https://doi.org/10.1037/xge0000431}
-
-\leavevmode\hypertarget{ref-bugg_support_2012}{}%
-Bugg, J. M., and Crump, M. J. (2012). In support of a distinction
-between voluntary and stimulus-driven control: A review of the
-literature on proportion congruent effects. \emph{Frontiers in
-Psychology}, \emph{3}, 367.
-\url{https://doi.org/10.3389/fpsyg.2012.00367}
-
-\leavevmode\hypertarget{ref-egner_creatures_2014}{}%
-Egner, T. (2014). Creatures of habit (and control): A multi-level
-learning perspective on the modulation of congruency effects.
-\emph{Frontiers in Psychology}, \emph{5}, 1247.
-\url{https://doi.org/10.3389/fpsyg.2014.01247}
-
-\leavevmode\hypertarget{ref-eriksen_effects_1974}{}%
-Eriksen, B. A., and Eriksen, C. W. (1974). Effects of noise letters upon
-the identification of a target letter in a nonsearch task.
-\emph{Perception \& Psychophysics}, \emph{16}, 143--149.
-\url{https://doi.org/10.3758/BF03203267}
-
-\leavevmode\hypertarget{ref-fischer_predicting_2015}{}%
-Fischer, R., and Dreisbach, G. (2015). Predicting high levels of
-multitasking reduces between-tasks interactions. Retrieved from
-\url{http://psycnet.apa.org/psycinfo/2015-47211-001/}
-
-\leavevmode\hypertarget{ref-king_priming_2012}{}%
-King, J. A., Korb, F. M., and Egner, T. (2012). Priming of control:
-Implicit contextual cuing of top-down attentional set. \emph{The Journal
-of Neuroscience}, \emph{32}, 8192--8200.
-\url{https://doi.org/10.1523/JNEUROSCI.0934-12.2012}
-
-\leavevmode\hypertarget{ref-logan_attention_1980}{}%
-Logan, G. D. (1980). Attention and automaticity in Stroop and priming
-tasks: Theory and data. \emph{Cognitive Psychology}, \emph{12}(4),
-523--553.
-
-\leavevmode\hypertarget{ref-logan_when_1979}{}%
-Logan, G. D., and Zbrodoff, N. J. (1979). When it helps to be misled:
-Facilitative effects of increasing the frequency of conflicting stimuli
-in a Stroop-like task. \emph{Memory \& Cognition}, \emph{7}, 166--174.
-\url{https://doi.org/10.3758/BF03197535}
-
-\leavevmode\hypertarget{ref-logan_strategies_1984}{}%
-Logan, G. D., Zbrodoff, N. J., and Williamson, J. (1984). Strategies in
-the color-word Stroop task. \emph{Bulletin of the Psychonomic Society},
-\emph{22}(2), 135--138.
-
-\leavevmode\hypertarget{ref-lowe_selective_1982}{}%
-Lowe, D. G., and Mitterer, J. O. (1982). Selective and divided Attention
-in a Stroop task. \emph{Canadian Journal of Psychology/Revue Canadienne
-de Psychologie}, \emph{36}(4), 684.
-
-\leavevmode\hypertarget{ref-mayr_outsourcing_2007}{}%
-Mayr, U., and Bryck, R. L. (2007). Outsourcing control to the
-environment: Effects of stimulus/response locations on task selection.
-\emph{Psychological Research}, \emph{71}(1), 107--116.
-\url{https://doi.org/10.1007/s00426-005-0039-x}
-
-\leavevmode\hypertarget{ref-stroop_studies_1935}{}%
-Stroop, J. R. (1935). Studies of interference in serial verbal
-reactions. \emph{Journal of Experimental Psychology}, \emph{18}, 643.
-\url{https://doi.org/10.1037/h0054651}
-
-\leavevmode\hypertarget{ref-west_effects_1998}{}%
-West, R., and Baylis, G. C. (1998). Effects of increased response
-dominance and contextual disintegration on the Stroop interference
-effect in older adults. \emph{Psychology and Aging}, \emph{13}(2), 206.
-
-\clearpage
 
 \fancyhead[L]{Appendices}
 \fancyhead[R]{\thepage}
@@ -522,317 +402,172 @@ effect in older adults. \emph{Psychology and Aging}, \emph{13}(2), 206.
 \chapter*{APPENDICES}
 \addcontentsline{toc}{chapter}{APPENDICES}
 
-\doublespacing
+\appendix
+\renewcommand\thefigure{A.\arabic{figure}}    
+\setcounter{figure}{0}
+\renewcommand\thetable{A.\arabic{table}} 
+\setcounter{table}{0}
 
-\hypertarget{appendix-a-r-code-for-chapter-5}{%
-\section*{Appendix A: R Code for Chapter
-5}\label{appendix-a-r-code-for-chapter-5}}
-\addcontentsline{toc}{section}{Appendix A: R Code for Chapter 5}
+\hypertarget{chapter-1-appendix}{%
+\section*{Chapter 1 Appendix}\label{chapter-1-appendix}}
+\addcontentsline{toc}{section}{Chapter 1 Appendix}
 
-\singlespace
+I set the appendix after the references in the main file. So, you'll
+just want to put all the appendix materials here. Here's an example.
+Appendix Table \ref{tab:metroafford} reports the median neighborhood
+cost burden rates for each of the 100 largest metropolitan areas between
+2000 and 2019 based on their 2019 metro population size. The below text
+allows you to format the table and include it in the appendix. I add
+Latex code below to center the table and start a new page for other
+appendices.
 
-Required: R Packages from CRAN
+\begin{center}
+\begingroup\fontsize{9}{11}\selectfont
 
-\small
+\begin{longtable}[t]{l>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}>{\centering\arraybackslash}p{5em}}
+\caption{\label{tab:metroafford}Median neighborhood affordability by metro, 2000 to 2019}\\
+\toprule
+\multicolumn{1}{c}{} & \multicolumn{2}{c}{Median rent burden} & \multicolumn{2}{c}{Median mortgage burden} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+Metro & 2000 & 2019 & 2000 & 2019\\
+\midrule
+\cellcolor{gray!6}{Akron, OH} & \cellcolor{gray!6}{33.59} & \cellcolor{gray!6}{42.59} & \cellcolor{gray!6}{24.13} & \cellcolor{gray!6}{20.32}\\
+Albany-Schenectady-Troy, NY & 34.17 & 42.31 & 24.22 & 23.38\\
+\cellcolor{gray!6}{Albuquerque, NM} & \cellcolor{gray!6}{40.12} & \cellcolor{gray!6}{44.39} & \cellcolor{gray!6}{30.41} & \cellcolor{gray!6}{29.20}\\
+Allentown-Bethlehem-Easton, PA-NJ & 34.48 & 46.46 & 26.86 & 27.05\\
+\cellcolor{gray!6}{Atlanta-Sandy Springs-Alpharetta, GA} & \cellcolor{gray!6}{35.29} & \cellcolor{gray!6}{45.23} & \cellcolor{gray!6}{24.29} & \cellcolor{gray!6}{25.26}\\
+Augusta-Richmond County, GA-SC & 33.16 & 45.77 & 24.92 & 24.11\\
+\cellcolor{gray!6}{Austin-Round Rock-Georgetown, TX} & \cellcolor{gray!6}{34.37} & \cellcolor{gray!6}{44.88} & \cellcolor{gray!6}{23.05} & \cellcolor{gray!6}{26.32}\\
+Bakersfield, CA & 40.80 & 50.20 & 32.00 & 34.03\\
+\cellcolor{gray!6}{Baltimore-Columbia-Towson, MD} & \cellcolor{gray!6}{33.89} & \cellcolor{gray!6}{45.39} & \cellcolor{gray!6}{26.67} & \cellcolor{gray!6}{26.06}\\
+Baton Rouge, LA & 30.28 & 42.57 & 22.33 & 21.96\\
+\cellcolor{gray!6}{Birmingham-Hoover, AL} & \cellcolor{gray!6}{29.12} & \cellcolor{gray!6}{42.30} & \cellcolor{gray!6}{23.90} & \cellcolor{gray!6}{24.42}\\
+Boise City, ID & 33.92 & 41.63 & 24.40 & 25.13\\
+\cellcolor{gray!6}{Boston-Cambridge-Newton, MA-NH} & \cellcolor{gray!6}{34.99} & \cellcolor{gray!6}{45.37} & \cellcolor{gray!6}{26.97} & \cellcolor{gray!6}{30.10}\\
+Bridgeport-Stamford-Norwalk, CT & 36.36 & 49.57 & 32.60 & 35.36\\
+\cellcolor{gray!6}{Buffalo-Cheektowaga, NY} & \cellcolor{gray!6}{37.27} & \cellcolor{gray!6}{43.70} & \cellcolor{gray!6}{25.24} & \cellcolor{gray!6}{20.77}\\
+Cape Coral-Fort Myers, FL & 35.01 & 48.06 & 29.25 & 34.51\\
+\cellcolor{gray!6}{Charleston-North Charleston, SC} & \cellcolor{gray!6}{33.68} & \cellcolor{gray!6}{44.06} & \cellcolor{gray!6}{26.01} & \cellcolor{gray!6}{29.33}\\
+Charlotte-Concord-Gastonia, NC-SC & 29.13 & 40.44 & 24.01 & 22.92\\
+\cellcolor{gray!6}{Chattanooga, TN-GA} & \cellcolor{gray!6}{30.99} & \cellcolor{gray!6}{40.91} & \cellcolor{gray!6}{23.32} & \cellcolor{gray!6}{23.04}\\
+Chicago-Naperville-Elgin, IL-IN-WI & 35.00 & 45.87 & 28.68 & 30.59\\
+\cellcolor{gray!6}{Cincinnati, OH-KY-IN} & \cellcolor{gray!6}{32.28} & \cellcolor{gray!6}{40.26} & \cellcolor{gray!6}{21.37} & \cellcolor{gray!6}{21.45}\\
+Cleveland-Elyria, OH & 35.35 & 44.02 & 26.75 & 24.72\\
+\cellcolor{gray!6}{Colorado Springs, CO} & \cellcolor{gray!6}{36.75} & \cellcolor{gray!6}{49.58} & \cellcolor{gray!6}{27.43} & \cellcolor{gray!6}{27.15}\\
+Columbia, SC & 30.10 & 45.01 & 22.72 & 25.13\\
+\cellcolor{gray!6}{Columbus, OH} & \cellcolor{gray!6}{31.26} & \cellcolor{gray!6}{39.43} & \cellcolor{gray!6}{23.33} & \cellcolor{gray!6}{21.77}\\
+Dallas-Fort Worth-Arlington, TX & 31.85 & 44.25 & 22.13 & 25.77\\
+\cellcolor{gray!6}{Dayton-Kettering, OH} & \cellcolor{gray!6}{33.75} & \cellcolor{gray!6}{40.90} & \cellcolor{gray!6}{23.00} & \cellcolor{gray!6}{20.55}\\
+Deltona-Daytona Beach-Ormond Beach, FL & 38.35 & 49.40 & 32.43 & 34.04\\
+\cellcolor{gray!6}{Denver-Aurora-Lakewood, CO} & \cellcolor{gray!6}{37.18} & \cellcolor{gray!6}{48.12} & \cellcolor{gray!6}{28.20} & \cellcolor{gray!6}{25.97}\\
+Des Moines-West Des Moines, IA & 31.91 & 37.59 & 20.37 & 19.79\\
+\cellcolor{gray!6}{Detroit-Warren-Dearborn, MI} & \cellcolor{gray!6}{33.95} & \cellcolor{gray!6}{45.49} & \cellcolor{gray!6}{22.41} & \cellcolor{gray!6}{24.40}\\
+Durham-Chapel Hill, NC & 35.52 & 43.13 & 24.79 & 23.83\\
+\cellcolor{gray!6}{El Paso, TX} & \cellcolor{gray!6}{38.91} & \cellcolor{gray!6}{45.48} & \cellcolor{gray!6}{29.00} & \cellcolor{gray!6}{32.98}\\
+Fresno, CA & 42.57 & 50.67 & 34.11 & 32.83\\
+\cellcolor{gray!6}{Grand Rapids-Kentwood, MI} & \cellcolor{gray!6}{28.04} & \cellcolor{gray!6}{41.95} & \cellcolor{gray!6}{18.25} & \cellcolor{gray!6}{19.29}\\
+Greensboro-High Point, NC & 30.63 & 41.12 & 24.01 & 25.35\\
+\cellcolor{gray!6}{Greenville-Anderson, SC} & \cellcolor{gray!6}{31.79} & \cellcolor{gray!6}{40.18} & \cellcolor{gray!6}{23.45} & \cellcolor{gray!6}{22.04}\\
+Harrisburg-Carlisle, PA & 28.48 & 40.11 & 22.64 & 23.75\\
+\cellcolor{gray!6}{Hartford-East Hartford-Middletown, CT} & \cellcolor{gray!6}{33.28} & \cellcolor{gray!6}{46.08} & \cellcolor{gray!6}{24.57} & \cellcolor{gray!6}{28.17}\\
+Houston-The Woodlands-Sugar Land, TX & 31.80 & 45.29 & 22.37 & 26.38\\
+\cellcolor{gray!6}{Indianapolis-Carmel-Anderson, IN} & \cellcolor{gray!6}{32.65} & \cellcolor{gray!6}{43.49} & \cellcolor{gray!6}{20.50} & \cellcolor{gray!6}{20.87}\\
+Jackson, MS & 32.73 & 41.50 & 25.97 & 25.08\\
+\cellcolor{gray!6}{Jacksonville, FL} & \cellcolor{gray!6}{33.33} & \cellcolor{gray!6}{46.91} & \cellcolor{gray!6}{24.93} & \cellcolor{gray!6}{27.84}\\
+Kansas City, MO-KS & 30.03 & 39.95 & 19.64 & 21.08\\
+\cellcolor{gray!6}{Knoxville, TN} & \cellcolor{gray!6}{31.47} & \cellcolor{gray!6}{40.61} & \cellcolor{gray!6}{24.07} & \cellcolor{gray!6}{22.49}\\
+Lakeland-Winter Haven, FL & 31.13 & 45.23 & 25.25 & 28.24\\
+\cellcolor{gray!6}{Las Vegas-Henderson-Paradise, NV} & \cellcolor{gray!6}{38.37} & \cellcolor{gray!6}{47.76} & \cellcolor{gray!6}{31.62} & \cellcolor{gray!6}{30.74}\\
+Little Rock-North Little Rock-Conway, AR & 31.59 & 43.13 & 18.72 & 20.68\\
+\cellcolor{gray!6}{Los Angeles-Long Beach-Anaheim, CA} & \cellcolor{gray!6}{43.31} & \cellcolor{gray!6}{54.80} & \cellcolor{gray!6}{41.13} & \cellcolor{gray!6}{43.01}\\
+Louisville/Jefferson County, KY-IN & 29.14 & 39.70 & 20.62 & 21.71\\
+\cellcolor{gray!6}{Madison, WI} & \cellcolor{gray!6}{29.05} & \cellcolor{gray!6}{38.41} & \cellcolor{gray!6}{23.73} & \cellcolor{gray!6}{23.58}\\
+McAllen-Edinburg-Mission, TX & 36.36 & 45.27 & 34.97 & 32.83\\
+\cellcolor{gray!6}{Memphis, TN-MS-AR} & \cellcolor{gray!6}{35.68} & \cellcolor{gray!6}{46.77} & \cellcolor{gray!6}{26.87} & \cellcolor{gray!6}{27.07}\\
+Miami-Fort Lauderdale-Pompano Beach, FL & 43.92 & 58.62 & 37.30 & 41.18\\
+\cellcolor{gray!6}{Milwaukee-Waukesha, WI} & \cellcolor{gray!6}{32.91} & \cellcolor{gray!6}{43.94} & \cellcolor{gray!6}{23.49} & \cellcolor{gray!6}{24.72}\\
+Minneapolis-St. Paul-Bloomington, MN-WI & 33.90 & 43.23 & 20.26 & 21.83\\
+\cellcolor{gray!6}{Nashville-Davidson--Murfreesboro--Franklin, TN} & \cellcolor{gray!6}{33.24} & \cellcolor{gray!6}{41.23} & \cellcolor{gray!6}{23.67} & \cellcolor{gray!6}{23.84}\\
+New Haven-Milford, CT & 36.19 & 47.36 & 29.98 & 31.91\\
+\cellcolor{gray!6}{New Orleans-Metairie, LA} & \cellcolor{gray!6}{38.29} & \cellcolor{gray!6}{51.03} & \cellcolor{gray!6}{27.73} & \cellcolor{gray!6}{33.15}\\
+New York-Newark-Jersey City, NY-NJ-PA & 39.15 & 50.00 & 36.82 & 41.01\\
+\cellcolor{gray!6}{North Port-Sarasota-Bradenton, FL} & \cellcolor{gray!6}{37.35} & \cellcolor{gray!6}{51.30} & \cellcolor{gray!6}{32.68} & \cellcolor{gray!6}{33.48}\\
+Ogden-Clearfield, UT & 33.59 & 37.21 & 27.18 & 20.33\\
+\cellcolor{gray!6}{Oklahoma City, OK} & \cellcolor{gray!6}{32.42} & \cellcolor{gray!6}{39.78} & \cellcolor{gray!6}{21.00} & \cellcolor{gray!6}{22.25}\\
+Omaha-Council Bluffs, NE-IA & 30.43 & 40.87 & 19.32 & 21.38\\
+\cellcolor{gray!6}{Orlando-Kissimmee-Sanford, FL} & \cellcolor{gray!6}{39.12} & \cellcolor{gray!6}{51.22} & \cellcolor{gray!6}{28.03} & \cellcolor{gray!6}{31.42}\\
+Oxnard-Thousand Oaks-Ventura, CA & 39.92 & 54.69 & 36.50 & 39.19\\
+\cellcolor{gray!6}{Palm Bay-Melbourne-Titusville, FL} & \cellcolor{gray!6}{36.93} & \cellcolor{gray!6}{46.74} & \cellcolor{gray!6}{26.84} & \cellcolor{gray!6}{31.14}\\
+Philadelphia-Camden-Wilmington, PA-NJ-DE-MD & 36.56 & 46.41 & 27.80 & 28.54\\
+\cellcolor{gray!6}{Phoenix-Mesa-Chandler, AZ} & \cellcolor{gray!6}{36.37} & \cellcolor{gray!6}{44.04} & \cellcolor{gray!6}{27.41} & \cellcolor{gray!6}{26.83}\\
+Pittsburgh, PA & 32.69 & 38.03 & 25.00 & 20.62\\
+\cellcolor{gray!6}{Portland-Vancouver-Hillsboro, OR-WA} & \cellcolor{gray!6}{37.90} & \cellcolor{gray!6}{45.42} & \cellcolor{gray!6}{30.61} & \cellcolor{gray!6}{28.47}\\
+Poughkeepsie-Newburgh-Middletown, NY & 37.06 & 49.11 & 29.25 & 35.20\\
+\cellcolor{gray!6}{Providence-Warwick, RI-MA} & \cellcolor{gray!6}{33.42} & \cellcolor{gray!6}{42.95} & \cellcolor{gray!6}{26.67} & \cellcolor{gray!6}{31.06}\\
+Provo-Orem, UT & 35.09 & 41.53 & 30.38 & 23.28\\
+\cellcolor{gray!6}{Raleigh-Cary, NC} & \cellcolor{gray!6}{32.42} & \cellcolor{gray!6}{40.91} & \cellcolor{gray!6}{22.63} & \cellcolor{gray!6}{19.85}\\
+Richmond, VA & 32.61 & 45.15 & 22.73 & 26.09\\
+\cellcolor{gray!6}{Riverside-San Bernardino-Ontario, CA} & \cellcolor{gray!6}{42.39} & \cellcolor{gray!6}{54.96} & \cellcolor{gray!6}{36.92} & \cellcolor{gray!6}{38.80}\\
+Rochester, NY & 40.55 & 48.15 & 24.98 & 24.08\\
+\cellcolor{gray!6}{Sacramento-Roseville-Folsom, CA} & \cellcolor{gray!6}{39.32} & \cellcolor{gray!6}{49.86} & \cellcolor{gray!6}{32.68} & \cellcolor{gray!6}{32.89}\\
+St. Louis, MO-IL & 31.48 & 42.11 & 19.65 & 22.17\\
+\cellcolor{gray!6}{Salt Lake City, UT} & \cellcolor{gray!6}{34.56} & \cellcolor{gray!6}{41.08} & \cellcolor{gray!6}{29.64} & \cellcolor{gray!6}{23.35}\\
+San Antonio-New Braunfels, TX & 33.05 & 42.99 & 22.81 & 27.04\\
+\cellcolor{gray!6}{San Diego-Chula Vista-Carlsbad, CA} & \cellcolor{gray!6}{41.87} & \cellcolor{gray!6}{53.25} & \cellcolor{gray!6}{38.46} & \cellcolor{gray!6}{39.19}\\
+San Francisco-Oakland-Berkeley, CA & 38.30 & 43.85 & 36.97 & 35.24\\
+\cellcolor{gray!6}{San Jose-Sunnyvale-Santa Clara, CA} & \cellcolor{gray!6}{38.18} & \cellcolor{gray!6}{45.65} & \cellcolor{gray!6}{34.70} & \cellcolor{gray!6}{34.46}\\
+Scranton--Wilkes-Barre, PA & 30.88 & 36.50 & 27.35 & 25.54\\
+\cellcolor{gray!6}{Seattle-Tacoma-Bellevue, WA} & \cellcolor{gray!6}{37.06} & \cellcolor{gray!6}{44.01} & \cellcolor{gray!6}{32.71} & \cellcolor{gray!6}{29.06}\\
+Springfield, MA & 34.74 & 49.09 & 24.57 & 29.39\\
+\cellcolor{gray!6}{Stockton, CA} & \cellcolor{gray!6}{42.75} & \cellcolor{gray!6}{51.73} & \cellcolor{gray!6}{35.15} & \cellcolor{gray!6}{36.00}\\
+Syracuse, NY & 37.41 & 43.74 & 23.26 & 20.57\\
+\cellcolor{gray!6}{Tampa-St. Petersburg-Clearwater, FL} & \cellcolor{gray!6}{37.07} & \cellcolor{gray!6}{48.65} & \cellcolor{gray!6}{27.82} & \cellcolor{gray!6}{29.86}\\
+Toledo, OH & 34.18 & 39.82 & 22.22 & 22.28\\
+\cellcolor{gray!6}{Tucson, AZ} & \cellcolor{gray!6}{39.41} & \cellcolor{gray!6}{45.55} & \cellcolor{gray!6}{27.28} & \cellcolor{gray!6}{28.27}\\
+Tulsa, OK & 30.82 & 38.65 & 20.64 & 22.48\\
+\cellcolor{gray!6}{Urban Honolulu, HI} & \cellcolor{gray!6}{38.74} & \cellcolor{gray!6}{48.72} & \cellcolor{gray!6}{40.41} & \cellcolor{gray!6}{37.44}\\
+Virginia Beach-Norfolk-Newport News, VA-NC & 37.54 & 47.84 & 30.23 & 31.09\\
+\cellcolor{gray!6}{Washington-Arlington-Alexandria, DC-VA-MD-WV} & \cellcolor{gray!6}{31.74} & \cellcolor{gray!6}{43.94} & \cellcolor{gray!6}{25.12} & \cellcolor{gray!6}{26.57}\\
+Wichita, KS & 30.75 & 41.05 & 18.36 & 21.47\\
+\cellcolor{gray!6}{Winston-Salem, NC} & \cellcolor{gray!6}{28.36} & \cellcolor{gray!6}{42.16} & \cellcolor{gray!6}{23.23} & \cellcolor{gray!6}{23.25}\\
+Worcester, MA-CT & 30.95 & 41.57 & 23.94 & 27.61\\
+\bottomrule
+\multicolumn{5}{l}{\rule{0pt}{1em}Metropolitian sample is limited to the 100 largest by 2019 population. }\\
+\end{longtable}
+\endgroup{}
+\end{center}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{require}\NormalTok{(tidyverse))\{}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
-  \KeywordTok{library}\NormalTok{(tidyverse)}
-\NormalTok{\}}
-\ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{require}\NormalTok{(furniture))\{}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"furniture"}\NormalTok{)}
-  \KeywordTok{library}\NormalTok{(furniture)}
-\NormalTok{\}}
-\ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{require}\NormalTok{(here))\{}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"here"}\NormalTok{)}
-  \KeywordTok{library}\NormalTok{(here)}
-\NormalTok{\}}
-\ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))\{}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{)}
-  \KeywordTok{library}\NormalTok{(devtools)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+\newpage
 
-\normalsize
+\FloatBarrier
 
-Required: R Packages from GitHub
+\newpage
 
-\small
+\fancyhead[L]{References}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{require}\NormalTok{(MarginalMediation))\{}
-\NormalTok{  devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"tysonstanley/MarginalMediation"}\NormalTok{)}
-  \KeywordTok{library}\NormalTok{(MarginalMediation)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+\chapter*{REFERENCES}
+\singlespacing
 
-\normalsize
+\setlength{\parskip}{6pt}
 
-\clearpage
+\noindent
 
-\hypertarget{examples-from-chapter-5}{%
-\subsection*{Examples from Chapter 5}\label{examples-from-chapter-5}}
-\addcontentsline{toc}{subsection}{Examples from Chapter 5}
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Anselin1995}{}}%
+Anselin, Luc. 1995. {``Local {Indicators} of {Spatial
+Association}\textemdash{{LISA}}.''} \emph{Geographical Analysis}
+27(2):93--115. doi:
+\href{https://doi.org/10.1111/j.1538-4632.1995.tb00338.x}{10.1111/j.1538-4632.1995.tb00338.x}.
 
-Figure \ref{fig:interaction} on page \pageref{fig:interaction}
+\leavevmode\vadjust pre{\hypertarget{ref-Walker2022}{}}%
+Walker, Kyle. 2022. \emph{Analyzing {US Census Data}: {Methods}, {Maps},
+and {Models} in {R}}. {CRC Press Taylor \& Francis Group}.
 
-\small
-
-\normalsize
-
-\clearpage
-
-\hypertarget{monte-carlo-simulation}{%
-\subsection*{Monte Carlo Simulation}\label{monte-carlo-simulation}}
-\addcontentsline{toc}{subsection}{Monte Carlo Simulation}
-
-Notably, the code for both the binary mediator condition and the count
-mediator condition we run via the Terminal as, once the directory was
-where the R file was located:
-
-\small
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{Rscript}\NormalTok{ Analyses_MMMC_scriptBinary.R }\StringTok{'c(1:45)'}
-\end{Highlighting}
-\end{Shaded}
-
-\normalsize
-
-\noindent and
-
-\small
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{Rscript}\NormalTok{ Analyses_MMMC_scriptCount.R }\StringTok{'c(1:45)'}
-\end{Highlighting}
-\end{Shaded}
-
-\normalsize
-
-Binary Mediator
-
-\small
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{## Marginal Mediation: Monte Carlo Simulation Study}
-\CommentTok{##   BINARY Mediator}
-\CommentTok{## Tyson S. Barrett}
-\CommentTok{##}
-\CommentTok{## devtools::install_github("tysonstanley/MarginalMediation")}
-
-\NormalTok{args <-}\StringTok{ }\KeywordTok{commandArgs}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\NormalTok{args <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =}\NormalTok{ args))}
-\KeywordTok{library}\NormalTok{(MarginalMediation)}
-\KeywordTok{library}\NormalTok{(tidyverse)}
-
-\CommentTok{## Create all combinations of independent variables}
-\NormalTok{cond_binary <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}
-  \DataTypeTok{samplesize =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{500}\NormalTok{, }\DecValTok{1000}\NormalTok{),}
-  \DataTypeTok{effecta =} \KeywordTok{c}\NormalTok{(.}\DecValTok{55}\NormalTok{, }\FloatTok{1.45}\NormalTok{, }\FloatTok{2.22}\NormalTok{),}
-  \DataTypeTok{effectb =} \KeywordTok{c}\NormalTok{(.}\DecValTok{24}\NormalTok{, }\FloatTok{.62}\NormalTok{, }\FloatTok{1.068}\NormalTok{),}
-  \DataTypeTok{effectc =} \KeywordTok{c}\NormalTok{(.}\DecValTok{3}\NormalTok{)}
-\NormalTok{)}
-
-\CommentTok{## Population Models}
-\CommentTok{## Binary Mediator}
-\NormalTok{data_genB <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(ps, reps, samplesize, effecta, effectb, effectc) \{}
-  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{84322}\NormalTok{)}
-\NormalTok{  Xc <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(ps)}
-\NormalTok{  z <-}\StringTok{ }\NormalTok{effecta }\OperatorTok{*}\StringTok{ }\NormalTok{Xc }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(ps, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\NormalTok{  pr <-}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{z))}
-\NormalTok{  M <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(ps, }\DecValTok{1}\NormalTok{, pr)}
-\NormalTok{  Y <-}\StringTok{ }\NormalTok{effectb }\OperatorTok{*}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{effectc }\OperatorTok{*}\StringTok{ }\NormalTok{Xc }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(ps, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\NormalTok{  M <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(M)}
-\NormalTok{  df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(Y, M, Xc)}
-\NormalTok{  bin <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\StringTok{"list"}\NormalTok{, reps)}
-
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(samplesize, effecta, effectb))}
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{lm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{Xc)}\OperatorTok{$}\NormalTok{coefficients)}
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{lm}\NormalTok{(}\KeywordTok{scale}\NormalTok{(Y) }\OperatorTok{~}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{Xc)}\OperatorTok{$}\NormalTok{coefficients)}
-\NormalTok{  med <-}\StringTok{ }\KeywordTok{amed}\NormalTok{(}\KeywordTok{glm}\NormalTok{(M }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, df, }\DataTypeTok{family =} \StringTok{"binomial"}\NormalTok{))}
-
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{reps) \{}
-\NormalTok{    d <-}\StringTok{ }\NormalTok{df[}\KeywordTok{sample}\NormalTok{(ps, samplesize), ]}
-\NormalTok{    pathbc <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{Xc, }\DataTypeTok{data =}\NormalTok{ d)}
-\NormalTok{    patha <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(M }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, }\DataTypeTok{data =}\NormalTok{ d, }\DataTypeTok{family =} \StringTok{"binomial"}\NormalTok{)}
-\NormalTok{    bin[[i]] <-}\StringTok{ }\KeywordTok{mma}\NormalTok{(pathbc, patha,}
-      \DataTypeTok{ind_effects =} \KeywordTok{c}\NormalTok{(}\StringTok{"Xc-M"}\NormalTok{),}
-      \DataTypeTok{boot =} \DecValTok{500}
-\NormalTok{    )}
-\NormalTok{    bin[[i]] <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
-      \StringTok{"IndEffects"}\NormalTok{ =}\StringTok{ }\NormalTok{bin[[i]]}\OperatorTok{$}\NormalTok{ind_effects,}
-      \StringTok{"DirEffects"}\NormalTok{ =}\StringTok{ }\NormalTok{bin[[i]]}\OperatorTok{$}\NormalTok{dir_effects,}
-      \StringTok{"Boot"}\NormalTok{ =}\StringTok{ }\NormalTok{bin[[i]]}\OperatorTok{$}\NormalTok{boot,}
-      \StringTok{"Total"}\NormalTok{ =}\StringTok{ }\KeywordTok{lm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, d)}\OperatorTok{$}\NormalTok{coefficients,}
-      \StringTok{"MedSize"}\NormalTok{ =}\StringTok{ }\NormalTok{med}
-\NormalTok{    )}
-    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}r}\StringTok{"}\NormalTok{, i)}
-\NormalTok{  \}}
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\KeywordTok{glm}\NormalTok{(M }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, }\DataTypeTok{family =} \StringTok{"binomial"}\NormalTok{)}\OperatorTok{$}\NormalTok{coefficients))}
-  \KeywordTok{return}\NormalTok{(bin)}
-\NormalTok{\}}
-
-\NormalTok{i =}\StringTok{ }\DecValTok{0}
-\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ args)\{}
-  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{84322}\NormalTok{)}
-\NormalTok{  i =}\StringTok{ }\NormalTok{i }\OperatorTok{+}\StringTok{ }\DecValTok{1}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Number:"}\NormalTok{, j, }\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-  
-\NormalTok{  out =}\StringTok{ }\KeywordTok{data_genB}\NormalTok{(}\FloatTok{1e6}\NormalTok{, }\DecValTok{500}\NormalTok{, }
-\NormalTok{                  cond_binary[args[[i]],}\DecValTok{1}\NormalTok{], }
-\NormalTok{                  cond_binary[args[[i]],}\DecValTok{2}\NormalTok{], }
-\NormalTok{                  cond_binary[args[[i]],}\DecValTok{3}\NormalTok{], }
-\NormalTok{                  cond_binary[args[[i]],}\DecValTok{4}\NormalTok{])}
-  
-  \KeywordTok{save}\NormalTok{(out, }\DataTypeTok{file =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"Sims_Data/Binary2_"}\NormalTok{, }
-\NormalTok{                          cond_binary[args[[i]],}\DecValTok{1}\NormalTok{], }\StringTok{"_"}\NormalTok{,}
-\NormalTok{                          cond_binary[args[[i]],}\DecValTok{2}\NormalTok{], }\StringTok{"_"}\NormalTok{,}
-\NormalTok{                          cond_binary[args[[i]],}\DecValTok{3}\NormalTok{], }\StringTok{"_"}\NormalTok{,}
-\NormalTok{                          cond_binary[args[[i]],}\DecValTok{4}\NormalTok{], }\StringTok{".rda"}\NormalTok{))}
-  
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Number:"}\NormalTok{, j, }\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Conditions Complete:}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
-      \StringTok{" Sample size ="}\NormalTok{, cond_binary[args[[i]],}\DecValTok{1}\NormalTok{], }
-      \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{  A path      ="}\NormalTok{, cond_binary[args[[i]],}\DecValTok{2}\NormalTok{], }
-      \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{  B path      ="}\NormalTok{, cond_binary[args[[i]],}\DecValTok{3}\NormalTok{], }
-      \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{  C path      ="}\NormalTok{, cond_binary[args[[i]],}\DecValTok{4}\NormalTok{], }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\normalsize
-
-Count Mediator
-
-\small
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{## Marginal Mediation: Monte Carlo Simulation Study}
-\CommentTok{##   COUNT Mediator}
-\CommentTok{## Tyson S. Barrett}
-\CommentTok{##}
-\CommentTok{## devtools::install_github("tysonstanley/MarginalMediation")}
-
-\NormalTok{args <-}\StringTok{ }\KeywordTok{commandArgs}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\NormalTok{args <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =}\NormalTok{ args))}
-\KeywordTok{library}\NormalTok{(MarginalMediation)}
-\KeywordTok{library}\NormalTok{(tidyverse)}
-
-\CommentTok{## Create all combinations of independent variables}
-\NormalTok{cond_count =}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}
-  \DataTypeTok{samplesize =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{500}\NormalTok{, }\DecValTok{1000}\NormalTok{),}
-  \DataTypeTok{effecta    =} \KeywordTok{c}\NormalTok{(.}\DecValTok{3}\NormalTok{, }\FloatTok{.6}\NormalTok{, }\FloatTok{1.1}\NormalTok{),}
-  \DataTypeTok{effectb    =} \KeywordTok{c}\NormalTok{(.}\DecValTok{084}\NormalTok{, }\FloatTok{.265}\NormalTok{, }\FloatTok{.49}\NormalTok{),}
-  \DataTypeTok{effectc    =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{.3}\NormalTok{)}
-\NormalTok{)}
-
-\CommentTok{## Population Models}
-\CommentTok{## Count Mediator}
-\NormalTok{data_genC =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(ps, reps, samplesize, effecta, effectb, effectc)\{}
-  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{84322}\NormalTok{)}
-\NormalTok{  Xc =}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(ps)}
-\NormalTok{  m1 =}\StringTok{ }\KeywordTok{exp}\NormalTok{(effecta }\OperatorTok{*}\StringTok{ }\NormalTok{Xc)}
-\NormalTok{  M  =}\StringTok{ }\KeywordTok{rpois}\NormalTok{(ps, }\DataTypeTok{lambda=}\NormalTok{m1)}
-\NormalTok{  Y  =}\StringTok{ }\NormalTok{effectb}\OperatorTok{*}\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{effectc}\OperatorTok{*}\NormalTok{Xc }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(ps, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\NormalTok{  df =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(Y, M, Xc)}
-\NormalTok{  poi  =}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\StringTok{"list"}\NormalTok{, reps)}
-  
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(samplesize, effecta, effectb))}
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{lm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{Xc)}\OperatorTok{$}\NormalTok{coefficients)}
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{lm}\NormalTok{(}\KeywordTok{scale}\NormalTok{(Y) }\OperatorTok{~}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{Xc)}\OperatorTok{$}\NormalTok{coefficients)}
-\NormalTok{  med =}\StringTok{ }\KeywordTok{amed}\NormalTok{(}\KeywordTok{glm}\NormalTok{(M }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, df, }\DataTypeTok{family =} \StringTok{"poisson"}\NormalTok{))}
-  
-  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{reps)\{}
-\NormalTok{    d =}\StringTok{ }\NormalTok{df[}\KeywordTok{sample}\NormalTok{(ps, samplesize), ]}
-\NormalTok{    pathbc =}\StringTok{ }\KeywordTok{glm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{M }\OperatorTok{+}\StringTok{ }\NormalTok{Xc, }\DataTypeTok{data =}\NormalTok{ d)}
-\NormalTok{    patha  =}\StringTok{ }\KeywordTok{glm}\NormalTok{(M }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, }\DataTypeTok{data =}\NormalTok{ d, }\DataTypeTok{family =} \StringTok{"poisson"}\NormalTok{)}
-\NormalTok{    poi[[i]] =}\StringTok{ }\KeywordTok{mma}\NormalTok{(pathbc, patha,}
-                   \DataTypeTok{ind_effects =} \KeywordTok{c}\NormalTok{(}\StringTok{"Xc-M"}\NormalTok{),}
-                   \DataTypeTok{boot =} \DecValTok{500}\NormalTok{)}
-\NormalTok{    poi[[i]] =}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"IndEffects"}\NormalTok{ =}\StringTok{ }\NormalTok{poi[[i]]}\OperatorTok{$}\NormalTok{ind_effects, }
-                    \StringTok{"DirEffects"}\NormalTok{ =}\StringTok{ }\NormalTok{poi[[i]]}\OperatorTok{$}\NormalTok{dir_effects, }
-                    \StringTok{"Boot"}\NormalTok{       =}\StringTok{ }\NormalTok{poi[[i]]}\OperatorTok{$}\NormalTok{boot, }
-                    \StringTok{"Total"}\NormalTok{      =}\StringTok{ }\KeywordTok{lm}\NormalTok{(Y }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, d)}\OperatorTok{$}\NormalTok{coefficients,}
-                    \StringTok{"MedSize"}\NormalTok{    =}\StringTok{ }\NormalTok{med)}
-    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}r}\StringTok{"}\NormalTok{, i)}
-\NormalTok{  \}}
-  \KeywordTok{print}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\KeywordTok{glm}\NormalTok{(M }\OperatorTok{~}\StringTok{ }\NormalTok{Xc, }\DataTypeTok{family =} \StringTok{"poisson"}\NormalTok{)}\OperatorTok{$}\NormalTok{coefficients))}
-  \KeywordTok{return}\NormalTok{(poi)}
-\NormalTok{\}}
-
-\NormalTok{i =}\StringTok{ }\DecValTok{0}
-\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ args)\{}
-  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{84322}\NormalTok{)}
-\NormalTok{  i =}\StringTok{ }\NormalTok{i }\OperatorTok{+}\StringTok{ }\DecValTok{1}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Number:"}\NormalTok{, j, }\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-  
-\NormalTok{  out =}\StringTok{ }\KeywordTok{data_genC}\NormalTok{(}\FloatTok{1e6}\NormalTok{, }\DecValTok{500}\NormalTok{, }
-\NormalTok{                  cond_count[args[[i]],}\DecValTok{1}\NormalTok{], }
-\NormalTok{                  cond_count[args[[i]],}\DecValTok{2}\NormalTok{], }
-\NormalTok{                  cond_count[args[[i]],}\DecValTok{3}\NormalTok{], }
-\NormalTok{                  cond_count[args[[i]],}\DecValTok{4}\NormalTok{])}
-  
-  \KeywordTok{save}\NormalTok{(out, }\DataTypeTok{file =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"Sims_Data/Count2_"}\NormalTok{, }
-\NormalTok{                          cond_count[args[[i]],}\DecValTok{1}\NormalTok{], }\StringTok{"_"}\NormalTok{,}
-\NormalTok{                          cond_count[args[[i]],}\DecValTok{2}\NormalTok{], }\StringTok{"_"}\NormalTok{,}
-\NormalTok{                          cond_count[args[[i]],}\DecValTok{3}\NormalTok{], }\StringTok{"_"}\NormalTok{,}
-\NormalTok{                          cond_count[args[[i]],}\DecValTok{4}\NormalTok{], }\StringTok{".rda"}\NormalTok{))}
-  
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Number:"}\NormalTok{, j, }\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
-  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Conditions Complete:}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
-      \StringTok{" Sample size ="}\NormalTok{, cond_count[args[[i]],}\DecValTok{1}\NormalTok{], }
-      \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{  A path      ="}\NormalTok{, cond_count[args[[i]],}\DecValTok{2}\NormalTok{], }
-      \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{  B path      ="}\NormalTok{, cond_count[args[[i]],}\DecValTok{3}\NormalTok{], }
-      \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{  C path      ="}\NormalTok{, cond_count[args[[i]],}\DecValTok{4}\NormalTok{], }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\normalsize
+\end{CSLReferences}
 
 \clearpage
-
-\hypertarget{monte-carlo-simulation-data-analyses}{%
-\subsection*{Monte Carlo Simulation Data
-Analyses}\label{monte-carlo-simulation-data-analyses}}
-\addcontentsline{toc}{subsection}{Monte Carlo Simulation Data Analyses}
-
-Data Preparations for tables and figures around page
-\pageref{tab_discrep}
-
-\small
-
-\normalsize
-
-Table \ref{tab_discrep} on page \pageref{tab_discrep}
-
-\small
-
-\normalsize
-
-Figure \ref{fig:totaltotal} on page \pageref{fig:totaltotal}
-
-\small
-
-\normalsize
-
-Figures \ref{fig_power}, \ref{fig_acc}, and \ref{fig_ci} on pages
-\pageref{fig_power}, \pageref{fig_acc}, and \pageref{fig_ci},
-respectively.
-
-\small
-
-\normalsize
-
 
 \end{document}
