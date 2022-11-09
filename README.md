@@ -2,10 +2,10 @@
 
 R markdown (w/ Latex) Template for writing a dissertation at CUNY. This has been adapted for a dissertation in the sociology department. 
 
-This follows the CUNY formatting guide for dissertations and theses ([CUNY format guide](https://libguides.gc.cuny.edu/dissertations/format)). This repo is based on the work of (Nicholaus P. Brosowsky)[https://github.com/nbrosowsky/dissertate-CUNY], who built on the work of others: 
+This follows the CUNY formatting guide for dissertations and theses [CUNY format guide](https://libguides.gc.cuny.edu/dissertations/format). This repo is based on the work of [Nicholaus P. Brosowsky](https://github.com/nbrosowsky/dissertate-CUNY), who built on the work of others: 
 
  - [DissertateUSU](https://github.com/TysonStanley/dissertateUSU) 
- - [Dissertate](https://github.com/suchow/dissertate)) 
+ - [Dissertate](https://github.com/suchow/dissertate)
  - CUNY latex template created by George Leibman ([GC latex thesis](https://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Doctoral-Programs/Mathematics/Course-Notes/LaTeX-template-for-GC-theses))
 
 This repo contains all necessary code for knitting a dissertation in R Markdown. Specifically, it contain example code for chapters, figures, tables, appendices. The logic of editing is as follows: 
