@@ -1,0 +1,19 @@
+
+# file types
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+*.html
+*.png
+*.jpeg
+*.pdf
+*.js
+*.bib
+*.log
+*.aux
+
+# folders
+archived/
+_archived/
