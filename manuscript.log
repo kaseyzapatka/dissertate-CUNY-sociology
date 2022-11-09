@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.8)  8 NOV 2022 21:09
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.11.8)  8 NOV 2022 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1244,7 +1244,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 137--138
 ] [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 
  []
 
@@ -1258,7 +1258,7 @@ LaTeX Font Info:    Font shape `TU/Georgia(0)/b/n' will be
 [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
 
  []
 
@@ -1269,7 +1269,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--166
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
 
  []
 
@@ -1281,37 +1281,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--172
 
 ]
 Chapter 1.
-Package newfloat Info: Setting Plan B file extension to `lof'... on input line 182.
+Package newfloat Info: Setting Plan B file extension to `lof'... on input line 183.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 209.
+(Font)              scaled to size 8.4pt on input line 210.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 209.
+(Font)              scaled to size 10.0pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.17035pt on input line 209.
+(Font)              scaled to size 11.17035pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.81924pt on input line 209.
+(Font)              scaled to size 7.81924pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.58517pt on input line 209.
+(Font)              scaled to size 5.58517pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.17157pt on input line 209.
+(Font)              scaled to size 11.17157pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.8201pt on input line 209.
+(Font)              scaled to size 7.8201pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.58578pt on input line 209.
+(Font)              scaled to size 5.58578pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.16928pt on input line 209.
+(Font)              scaled to size 11.16928pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.8185pt on input line 209.
+(Font)              scaled to size 7.8185pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.58464pt on input line 209.
+(Font)              scaled to size 5.58464pt on input line 210.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 209.
+(Font)              scaled to size 7.0pt on input line 210.
 File: figures/dumbbell_rent.jpeg Graphic file (type bmp)
 <figures/dumbbell_rent.jpeg>
 LaTeX Font Info:    Font shape `TU/Georgia(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 218.
+(Font)              scaled to size 10.95pt on input line 219.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 218.
+(Font)              scaled to size 10.95pt on input line 219.
 [1
 
 ] [2] [3]
@@ -1320,14 +1320,14 @@ Chapter 2.
 
 ]
 LaTeX Font Info:    Font shape `TU/Georgia(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 285.
+(Font)              scaled to size 12.0pt on input line 286.
 
 Package fontspec Info: Georgia scale = 0.9999973588643117.
 
 LaTeX Font Info:    Font shape `TU/Georgia(2)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 314.
+(Font)              scaled to size 12.0pt on input line 315.
 
-Overfull \hbox (12.24303pt too wide) in paragraph at lines 307--336
+Overfull \hbox (12.24303pt too wide) in paragraph at lines 308--337
  [][] 
  []
 
@@ -1339,7 +1339,7 @@ File: figures/flow-chart.pdf Graphic file (type pdf)
 
 ] [8]
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 425.
+(Font)              scaled to size 9.0pt on input line 426.
 [9
 
 ] [10] [11] [12] [13
