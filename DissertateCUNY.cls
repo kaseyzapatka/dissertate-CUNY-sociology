@@ -30,7 +30,7 @@
 
 % Text layout.
 \usepackage{ragged2e}
-\RaggedRight
+\justifying
 \RequirePackage{graphicx}
 \usepackage{fixltx2e}
 \usepackage{parskip}
@@ -46,7 +46,7 @@
 \usepackage{hyperref}
 \RequirePackage{url}
 \RequirePackage{amssymb}
-\RequirePackage{mathspec}
+% \RequirePackage{mathspec}
 \AtBeginEnvironment{tabular}{\addfontfeature{RawFeature=+tnum}}
 \widowpenalty=300
 \clubpenalty=300
