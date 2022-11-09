@@ -1,0 +1,70 @@
+---
+title: "Appendix"
+output: pdf_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results="hide"}
+knitr::opts_chunk$set(echo = FALSE)
+
+
+# load data --------------------------------------------------------------------
+
+# Chapter 1
+metro_afford_00_19 <- 
+  read_rds(here("tables/metro_afford_00_19.rds"))
+
+# set relative file path to project directory
+here()
+
+
+```
+
+\appendix
+\renewcommand\thefigure{A.\arabic{figure}}    
+\setcounter{figure}{0}
+\renewcommand\thetable{A.\arabic{table}} 
+\setcounter{table}{0}
+
+
+# Chapter 1 Appendix {-}
+
+I set the appendix after the references in the main file. So, you'll just want to put all the appendix materials here. Here's an example. Appendix Table \ref{tab:metroafford} reports the median neighborhood cost burden rates for each of the 100 largest metropolitan areas between 2000 and 2019 based on their 2019 metro population size. The below text allows you to format the table and include it in the appendix. I add Latex code below to center the table and start a new page for other appendices.
+
+
+\begin{center}
+```{r metroafford}
+
+# nested model object 
+metro_afford_00_19 %>% 
+  
+
+  # kable specifications
+  knitr::kable(booktabs = T, 
+               longtable = T,  # make long
+               caption = "Median neighborhood affordability by metro, 2000 to 2019",
+               linesep = "", 
+               align= "lcccc", 
+               col.names = c("Metro","2000","2019","2000","2019"))   %>% 
+  kable_styling(latex_options = c("HOLD_position", "striped"), 
+                position = "center", 
+                full_width = F, 
+                font_size = 9) %>%
+  
+
+  #  ensure equal column width of all but first column
+  column_spec(c(2,3,4,5), width = "5em") %>%
+  footnote(general = "Metropolitian sample is limited to the 100 largest by 2019 population. ",
+           general_title = "",
+           footnote_as_chunk = T)  %>% 
+  
+  # add headers above each row
+  add_header_above(c("", "Median rent burden" = 2, "Median mortgage burden" = 2))
+  
+  
+  
+
+
+```
+\end{center}
+
+\newpage

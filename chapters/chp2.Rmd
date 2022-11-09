@@ -1,0 +1,125 @@
+---
+title: "Chapter 2: Insert title"
+output: pdf_document
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE, results="hide"}
+
+# remove all objects in R and clear R environment
+remove(list = ls())
+
+# chunk options ----------------------------------------------------------------
+knitr::opts_chunk$set(
+  fig.align = "center",        # center align figures
+  fig.keep = "all",            # keep all figs
+  warnings = FALSE,            # prevents warnings from appearing in code chunk
+  message = FALSE,             # prevents messages from appearing in code chunk
+  echo = FALSE,                # do not echo code in file
+  results = "markup"           # hide results
+)
+
+
+# load all packages using xfun, package2 will install if not available
+xfun::pkg_attach2(c("tidyverse",
+                    "tidycensus",
+                    "here",
+                    "ggalt",
+                    "ggExtra",
+                    "extrafont",
+                    "showtext", 
+                    "kableExtra", 
+                    "modelsummary",
+                    "cowplot", 
+                    "gt"))
+
+
+
+# set relative file path to project directory
+here()
+
+
+# load data --------------------------------------------------------------------
+descriptives_df <- read_rds(here("tables/descriptives_df.rds"))
+
+# environment settings ---------------------------------------------------------
+
+# set environment options
+options(scipen=999)
+
+## Loading Google fonts (https://fonts.google.com/)
+font_add_google("Lato", "lato")
+showtext_auto()
+
+```
+
+<!-- \fancyhf{}  -->
+<!-- \renewcommand{\headrulewidth}{0pt}  -->
+<!-- \rfoot{\thepage} -->
+<!-- \pagestyle{fancy} -->
+<!-- \pagenumbering{arabic} -->
+
+\doublespacing
+
+
+# Introduction 
+
+Write intro. 
+
+# New Section
+
+Maybe write a literature review here?
+
+## Sub-section
+ 
+Continue writing interesting things. Add an equation. The Latex label code allows you to cross reference the equation. I give two examples below.
+
+\begin{equation} \label{eq:gmi}
+I = \frac{N}{W} \frac{ \Sigma_{i}\Sigma_{j}w_{ij}(x_{i} - \bar{x})(x_{j} - \bar{x}) } { \Sigma_{i}(x_{i} - \bar{x})^2 } 
+\end{equation}
+
+where $w_{ij}$ represents the spatial weights matrix, $N$ is the number of spatial units denoted by $i$ and $j$, $W$ is the sum of the spatial weights, and $x$ is the given observation [@Walker2022, pg 7.6]. Essentially, this statistic summarizes the degree of spatial autocorrelation across the spatial scope, which for this project, represents the respective metropolitan area. 
+
+The second method combines statistical and visual evidence by calculating Local Indicators of Spatial Autocorrelation (LISA) and visualizing the distribution of these statistics across a metro area using maps [@Anselin1995; @Walker2022]. This affords researchers the ability to not only visualize the spatial distribution of statistically significant spatial clusters, but also illustrate the degree each spatial unit contributes to overall spatial autocorrelation score [@Walker2022]. The Local Moran's I statistic takes the following form: "a given local feature $i$ with $j$ neighbors:"
+
+\begin{equation} \label{eq:lmi}
+I_{i} = z_{i} \sum_{j} {w_{ij} z_{j}} 
+\end{equation}
+
+where $i$ is a given local feature, $j$ represents its neighbors, and $z_{i}$ and $z_{j}$ denote deviations from the mean [@Walker2022]. 
+
+
+### Sub-sub section.
+
+You can even add a sub-sub section. I find adding a "period" at the end helps distinguish the section from the normal text. 
+
+
+# Result secion
+
+Write up your results. Here's an example of how to make a table and cross-reference it. Table \ref{tab:descriptives} reports neighborhood medians for all covariates included in the following multivariate analyses by gentrification status. I include summary statistics on neighborhoods not eligible to gentrify since these neighborhoods are also included in the models; however, I will focus on comparing gentrifying neighborhoods to those eligible but did not gentrify since they are the appropriate reference group.
+
+
+\begin{singlespace}
+```{r descriptives}
+
+descriptives_table <- descriptives_df %>% 
+  select(-N) %>% 
+  add_row(` ` = "", `Non-gentrifying` = "2,263", `Moderate` = "2,263", `Intense` = "2,263", `Not_eligible` = "2,263") %>%  
+  rename("Not eligible" = Not_eligible) %>% 
+  knitr::kable(booktabs = T, caption = "Descriptives statistics for all model variables by gentrification status", linesep = "") %>% 
+  kable_styling(latex_options = c("HOLD_position", "striped")) %>% 
+  column_spec(1, width = "15em") %>% 
+  pack_rows('Demographic controls', 1 , 7) %>% 
+  pack_rows('Housing market controls', 8 , 12) %>% 
+  pack_rows('Inequality controls', 13 , 14) %>% 
+  add_header_above(c(" " = 1, "Neighborhood gentrification status" = 3, " " = 1)) 
+descriptives_table
+
+
+```
+
+\end{singlespace}
+
+
+# Discussion and conclusion
+
+Conclude it. 
