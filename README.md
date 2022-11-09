@@ -1,8 +1,8 @@
 # Dissertate-CUNY-sociology
 
-R markdown (w/ Latex) Template for writing a dissertation at CUNY
+R markdown (w/ Latex) Template for writing a dissertation at CUNY. This has been adapted for a dissertation in the sociology department. 
 
-This follows the CUNY formatting guide for dissertations and theses ([CUNY format guide](https://libguides.gc.cuny.edu/dissertations/format)). This repo is based on the work of Nicholaus P. Brosowsky[https://github.com/nbrosowsky/dissertate-CUNY], who built on the work of others: 
+This follows the CUNY formatting guide for dissertations and theses ([CUNY format guide](https://libguides.gc.cuny.edu/dissertations/format)). This repo is based on the work of (Nicholaus P. Brosowsky)[https://github.com/nbrosowsky/dissertate-CUNY], who built on the work of others: 
 
  - [DissertateUSU](https://github.com/TysonStanley/dissertateUSU) 
  - [Dissertate](https://github.com/suchow/dissertate)) 
