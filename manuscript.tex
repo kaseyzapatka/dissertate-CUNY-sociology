@@ -76,13 +76,15 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \usepackage{xspace}
-\newcommand{\yeardegree}{2022\xspace}\newcommand{\degree}{Doctor of Philosophy\xspace}
+\newcommand{\yeardegree}{2022\xspace}\newcommand{\yearapproved}{2022\xspace}
+\newcommand{\degree}{Doctor of Philosophy\xspace}
 \newcommand{\field}{Sociology\xspace}
+\newcommand{\approved}{December\xspace}
 \newcommand{\chairperson}{Chair Name\xspace}
-\newcommand{\committeeone}{Prof 1\xspace}
-\newcommand{\committeetwo}{Prof 2\xspace}
+\newcommand{\committeeone}{Prof 1, Advisor\xspace}
+\newcommand{\committeetwo}{Prof 2, First Reader\xspace}
 \newcommand{\committeethree}{Prof 3\xspace}
-\newcommand{\committeefour}{\xspace}
+\newcommand{\committeefour}{Prof 3\xspace}
 \newcommand{\gradschoolguy}{\xspace}
 \newcommand{\EO}{Executive Officer\xspace}
 \newcommand{\advisor}{Advisor Name\xspace}
@@ -146,15 +148,6 @@ Title}
 Acknowledge them.
 
 \newpage
-\fancyhead[L]{Dedication}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
-\chapter*{DEDICATION}
-\addcontentsline{toc}{section}{Dedication}
-
-Dedicate it.
-
-\newpage
 \fancyhead[L]{Table of Contents}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
@@ -171,6 +164,18 @@ Dedicate it.
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 \listoffigures
+
+\newpage
+\fancyhead[L]{Dedication}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+\chapter*{DEDICATION}
+\addcontentsline{toc}{section}{Dedication}
+
+\hspace{0pt}
+\vfill
+
+\textit{Dedicate it here.} \vfill \hspace{0pt}
 
 \newpage
 \pagenumbering{arabic}
@@ -550,6 +555,7 @@ Worcester, MA-CT & 30.95 & 41.57 & 23.94 & 27.61\\
 
 \chapter*{REFERENCES}
 \singlespacing
+\addcontentsline{toc}{chapter}{REFERENCES}
 
 \setlength{\parskip}{6pt}
 
