@@ -254,8 +254,9 @@
 
 
 \newcommand{\approvalpage}{
-\newpage
+% \newpage - CHAPTER FUNCTION HAS IMPLICIT NEW PAGE COMMAND
 	\begin{center}
+	 \chapter*{APPROVAL}
     \singlespaced
 	\@title\\
     \doublespaced
@@ -266,27 +267,32 @@
         This manuscript has been read and accepted for the Graduate Faculty in \field in satisfaction of the dissertation requirement for the degree of \degree.\\ 
     \end{center}
 	\vspace{50pt}
-	\noindent\begin{tabular}{ll}
-    \makebox[2.8in]{\hrulefill} & \makebox[2.8in]{\hrulefill}\\    
-    Date                     & \chairperson \\
-                             & Chair of Examining Committee \\
-    & \\
-    & \\
-    & \\
-    & \\
-    \makebox[2.8in]{\hrulefill} & \makebox[2.8in]{\hrulefill}\\    
-    Date                    & \EO \\
-                            & Executive Officer \\
-    \end{tabular}
+
+ \begin{center}
+ \doublespaced
+        Approved: \approved \yearapproved \\
+    \end{center}
+    
+      \vspace{25pt}
+        
+        
+  \begin{center}
+  \doublespaced
+    \chairperson, Chair of Examining Committee \\
+
+    \EO, Executive Officer \\
+  \end{center}
+
     
     \vspace{50pt}
     
     \begin{center}
     \doublespaced
-        Supervisory Committee \\
+        Supervisory Committee: \\
         \committeeone \\
         \committeetwo \\
         \committeethree \\
+        \committeefour \\
     \end{center}
     
     \vspace{\fill}

@@ -22,15 +22,17 @@ params:
   abstract: 'Write your abstract here but keep in between quotes. ' 
   advisor: Advisor Name
   chair: Chair Name
-  committee1: Prof 1
-  committee2: Prof 2
+  committee1: Prof 1, Advisor
+  committee2: Prof 2, First Reader
   committee3: Prof 3
+  committee4: Prof 3
   degree: Doctor of Philosophy
   executiveOfficer: Executive Officer
   field: Sociology
+  approved: December
+  yearapproved: '2022' # could be different if applying for Feb graduation
   year: '2022'
 bibliography: references.bib
-
 ---
 
 ```{r global_options, include=FALSE}
@@ -43,8 +45,10 @@ knitr::opts_chunk$set(fig.path = 'figures/', # In code chunks, I use here() pack
 ## Do NOT Remove / adds params to doc
 cat(paste0("\\usepackage{xspace}\n",
            "\\newcommand{\\yeardegree}{",params$year,"\\xspace}",
+            "\\newcommand{\\yearapproved}{",params$yearapproved,"\\xspace}\n",
            "\\newcommand{\\degree}{",params$degree,"\\xspace}\n",
            "\\newcommand{\\field}{",params$field,"\\xspace}\n",
+           "\\newcommand{\\approved}{",params$approved,"\\xspace}\n",
            "\\newcommand{\\chairperson}{", params$chair, "\\xspace}\n",
            "\\newcommand{\\committeeone}{", params$committee1, "\\xspace}\n",
            "\\newcommand{\\committeetwo}{", params$committee2, "\\xspace}\n",
@@ -86,18 +90,6 @@ cat(paste0("\\usepackage{xspace}\n",
 Acknowledge them.
 
  
- 
-<!-- Dedication -->
-\newpage
-\fancyhead[L]{Dedication}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{}
-\chapter*{DEDICATION}
-\addcontentsline{toc}{section}{Dedication}
-
-Dedicate it.
- 
-
 <!-- Front Matter -->
 \newpage
 \fancyhead[L]{Table of Contents}
@@ -116,6 +108,23 @@ Dedicate it.
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 \listoffigures
+
+
+<!-- Dedication -->
+\newpage
+\fancyhead[L]{Dedication}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+\chapter*{DEDICATION}
+\addcontentsline{toc}{section}{Dedication}
+
+
+\hspace{0pt}
+\vfill
+\textit{Dedicate it here.}
+\vfill
+\hspace{0pt}
+
 
 
 \newpage
@@ -184,6 +193,7 @@ Dedicate it.
 
 \chapter*{REFERENCES}
 \singlespacing
+\addcontentsline{toc}{chapter}{REFERENCES}
 
 <!-- \setlength{\parindent}{-0.5in} -->
 <!-- \setlength{\leftskip}{0.5in} -->
