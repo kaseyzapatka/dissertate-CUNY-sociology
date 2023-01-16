@@ -65,7 +65,7 @@ showtext_auto()
 
 # Introduction
 
-This chapter
+Write an introduction for this chapter here. 
 
 # Section
 
