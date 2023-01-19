@@ -326,7 +326,7 @@
     \fancyhead[R]{\thepage}
     \fancyfoot[C]{}
     \chapter*{ABSTRACT}
-    \addcontentsline{toc}{section}{Abstract}
+    % \addcontentsline{toc}{section}{Abstract}
 
    \doublespacing
    \begin{center}

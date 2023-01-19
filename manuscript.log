@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.30)  16 JAN 2023 16:35
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.30)  18 JAN 2023 21:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1174,7 +1174,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--140
 ] [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
 
  []
 
@@ -1212,7 +1212,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/Georgia(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 3.
+(Font)              scaled to size 12.0pt on input line 1.
 )
 \tf@toc=\write3
 \openout3 = `manuscript.toc'.
@@ -1220,7 +1220,7 @@ LaTeX Font Info:    Font shape `TU/Georgia(0)/b/n' will be
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
 
  []
 
@@ -1231,7 +1231,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--160
 [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
 
  []
 
@@ -1245,37 +1245,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--166
 
 ]
 Chapter 1.
-Package newfloat Info: Setting Plan B file extension to `lof'... on input line 188.
+Package newfloat Info: Setting Plan B file extension to `lof'... on input line 187.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 215.
+(Font)              scaled to size 8.4pt on input line 214.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 215.
+(Font)              scaled to size 10.0pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.17035pt on input line 215.
+(Font)              scaled to size 11.17035pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.81924pt on input line 215.
+(Font)              scaled to size 7.81924pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.58517pt on input line 215.
+(Font)              scaled to size 5.58517pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.17157pt on input line 215.
+(Font)              scaled to size 11.17157pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.8201pt on input line 215.
+(Font)              scaled to size 7.8201pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.58578pt on input line 215.
+(Font)              scaled to size 5.58578pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.16928pt on input line 215.
+(Font)              scaled to size 11.16928pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.8185pt on input line 215.
+(Font)              scaled to size 7.8185pt on input line 214.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.58464pt on input line 215.
+(Font)              scaled to size 5.58464pt on input line 214.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 215.
+(Font)              scaled to size 7.0pt on input line 214.
 File: figures/dumbbell_rent.jpeg Graphic file (type bmp)
 <figures/dumbbell_rent.jpeg>
 LaTeX Font Info:    Font shape `TU/Georgia(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 224.
+(Font)              scaled to size 10.95pt on input line 223.
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 224.
+(Font)              scaled to size 10.95pt on input line 223.
 [1
 
 ] [2] [3]
@@ -1284,7 +1284,7 @@ Chapter 2.
 
 ]
 LaTeX Font Info:    Font shape `TU/Georgia(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 291.
+(Font)              scaled to size 12.0pt on input line 290.
 
 Package fontspec Info: Georgia scale = 0.9999973588643117.
 
@@ -1322,11 +1322,11 @@ Package fontspec Info: Font family 'Georgia(2)' created for font 'Georgia'
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/Georgia(2)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 313.
+(Font)              scaled to size 12.0pt on input line 312.
 LaTeX Font Info:    Font shape `TU/Georgia(2)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 320.
+(Font)              scaled to size 12.0pt on input line 319.
 
-Overfull \hbox (12.24303pt too wide) in paragraph at lines 313--342
+Overfull \hbox (12.24303pt too wide) in paragraph at lines 312--341
  [][] 
  []
 
@@ -1338,7 +1338,7 @@ File: figures/flow-chart.pdf Graphic file (type pdf)
 
 ] [8]
 LaTeX Font Info:    Font shape `TU/Georgia(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 431.
+(Font)              scaled to size 9.0pt on input line 430.
 [9
 
 ] [10] [11] [12] [13
@@ -1351,10 +1351,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 24542 strings out of 478777
- 454274 string characters out of 5850205
+ 24540 strings out of 478777
+ 454262 string characters out of 5850205
  1947979 words of memory out of 5000000
- 44120 multiletter control sequences out of 15000+600000
+ 44118 multiletter control sequences out of 15000+600000
  518932 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,12n,131p,1199b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s

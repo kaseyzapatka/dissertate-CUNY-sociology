@@ -85,7 +85,7 @@ cat(paste0("\\usepackage{xspace}\n",
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 \chapter*{ACKNOWLEDGEMENTS}
-\addcontentsline{toc}{section}{Acknowledgments}
+<!-- \addcontentsline{toc}{section}{Acknowledgments} -->
 
 Acknowledge them.
 
